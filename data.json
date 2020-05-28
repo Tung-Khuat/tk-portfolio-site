@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Sushi Koju",
+        "subtitle": "Food Ordering App",
+        "description": "TK-MovieDatabase is a responsive React app that uses The Movie Database (TMDb) API.",
+        "demoLink": "http://13.53.174.170:3001/",
+        "sourceCodeLink": "null",
+        "banner": "./images/sushi-banner1.jpg"
+    },
+    {
+        "title": "Recipe",
+        "subtitle": "Cook Book App",
+        "description": "TK-MovieDatabase is a responsive React app that uses The Movie Database (TMDb) API.",
+        "demoLink": "https://tungkhuat.herokuapp.com/",
+        "sourceCodeLink": "https://github.com/Tung-Khuat/TKMovieDatabaseApp",
+        "banner": "./images/recipe-banner3.jpg"
+    },
+    {
+        "title": "TK-MovieDatabase",
+        "subtitle": "Movie Database App",
+        "description": "TK-MovieDatabase is a responsive React app that uses The Movie Database (TMDb) API.",
+        "demoLink": "https://tungkhuat.herokuapp.com/",
+        "sourceCodeLink": "https://github.com/Tung-Khuat/TKMovieDatabaseApp",
+        "banner": "https://images.unsplash.com/photo-1521967906867-14ec9d64bee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+    },
+    {
+        "title": "Weather App",
+        "subtitle": "Weather forecast",
+        "description": "TK-MovieDatabase is a responsive React app that uses The Movie Database (TMDb) API.",
+        "demoLink": "https://tungkhuat.herokuapp.com/",
+        "sourceCodeLink": "https://github.com/Tung-Khuat/TKMovieDatabaseApp",
+        "banner": "./images/weather-banner5.jpg"
+    }
+]
