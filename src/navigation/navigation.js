@@ -44,7 +44,7 @@ export default function Navigation({textColor, underlineColor, customNavList}) {
     const theme = useContext(ThemeContext);
 
     return (
-        <Nav color={textColor || theme.foreground} underlineColor={underlineColor || theme.highlight}>
+        <Nav color={textColor || theme.darkest} underlineColor={underlineColor || theme.highlight}>
             {
                 customNavList && (
                     {customNavList}
@@ -54,8 +54,7 @@ export default function Navigation({textColor, underlineColor, customNavList}) {
                 !customNavList && (
                     <ul>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#work">Work</a></li>
-                        <li><a href="#skill">Skill</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 )

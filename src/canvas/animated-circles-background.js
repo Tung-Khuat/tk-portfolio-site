@@ -1,14 +1,13 @@
-import { theme } from "../theme/theme-context";
-
 let mousePosition = {x: 150, y: 200};
-const circleColors = theme.lightWarmPalette.paletteArray;
 let currentCanvasDimensions = {w: 100, h: 100};
 let circleArray = []
-let numberOfCircles = null;
+let numberOfCircles = 800;
 
+// eslint-disable-next-line no-unused-vars
 function calcMaxNumberOfCircles (canvasWidth, canvasHeight){
     return Math.floor((canvasWidth * canvasHeight) / 500);
 }
+
 export function updateMousePosition(newPosition) {
     mousePosition.x = newPosition.x;
     mousePosition.y = newPosition.y;
@@ -17,14 +16,13 @@ export function updateMousePosition(newPosition) {
 export function updateCurrentCanvasDimensions(w, h) {
     currentCanvasDimensions.w = w;
     currentCanvasDimensions.h = h;
-    numberOfCircles = calcMaxNumberOfCircles(w, h)
+    // numberOfCircles = calcMaxNumberOfCircles(w, h)
 }
 
-export function generateCircles() {
+export function generateCircles(colorArray) {
     circleArray = []
     const width = currentCanvasDimensions.w;
     const height = currentCanvasDimensions.h;
-
     for (let i = 0; i < numberOfCircles; i++) {
         const radius = Math.random() * 7 + 1;
         let x = Math.random() * (width - radius * 2) + radius;
@@ -36,6 +34,7 @@ export function generateCircles() {
             position: {x, y},
             velocity: {dx, dy},
             radius,
+            colorArray,
         }
         const newCircle = new Circle(circleAttributes);
         circleArray.push(newCircle);
@@ -55,15 +54,13 @@ export const initializeBackground = (canvas, ctx) => {
     animateCircleBackground(ctx);
 }
 
-
-
 class Circle {
     constructor(circleAttributes) {
         this.position = circleAttributes.position;
         this.velocity = circleAttributes.velocity;
         this.radius = circleAttributes.radius;
         this.minRadius = circleAttributes.radius;
-        this.color = circleColors[Math.floor(Math.random() * circleColors.length)];
+        this.color = circleAttributes.colorArray[Math.floor(Math.random() * circleAttributes.colorArray.length)];
         this.maxRadius = (currentCanvasDimensions.w * currentCanvasDimensions.h) / 20000 + 25;
 
         let { position, velocity, radius, minRadius, maxRadius, color } = this;

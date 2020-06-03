@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {ChevronRightRounded, ChevronLeftRounded} from '@material-ui/icons';
 
-const CanvasSliderContainer = styled.div`
+const SliderContainer = styled.div`
     width: 100%;
     position: relative;
 `
 
-const CanvasSliderSlide = styled.div`
+const SliderSlide = styled.div`
     display: flex;
     width: 100%;
 `           
@@ -25,7 +25,7 @@ const SlideButton = styled.div`
     }
 `
 
-export default function CanvasSlider({canvasArray}) { 
+export default function Slider({canvasArray}) { 
     const [canvasIndex, setCanvasIndex] = useState(0);
 
     function handleOnClick(number) {
@@ -39,10 +39,10 @@ export default function CanvasSlider({canvasArray}) {
     }
 
     return (
-        <CanvasSliderContainer>
-            <CanvasSliderSlide>
+        <SliderContainer>
+            <SliderSlide>
                 {canvasArray[canvasIndex]}
-            </CanvasSliderSlide>
+            </SliderSlide>
             <SlideButton 
                 onClick={()=>{handleOnClick(-1)}}
                 style={{left:0}}
@@ -55,6 +55,6 @@ export default function CanvasSlider({canvasArray}) {
             >
                 <ChevronRightRounded fontSize={"large"}/>
             </SlideButton>
-        </CanvasSliderContainer>
+        </SliderContainer>
     )       
 }

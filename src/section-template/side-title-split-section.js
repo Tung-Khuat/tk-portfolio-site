@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import { ThemeContext } from '../theme/theme-context';
+import React from 'react';
+import styled from 'styled-components';
 import Navigation from '../navigation/navigation';
 import { Wrapper } from '../styled-components/basic-components'
 
@@ -25,6 +24,7 @@ const TitleContainer = styled(Wrapper)`
     width: ${({titleWidth}) => titleWidth + '%'};
     height: 100vh;
     transition: 1s width cubic-bezier(.77,0,.175,1);
+    z-index: 50;
 `
 const CenteredContent = styled.div`
     position: absolute;
@@ -33,27 +33,38 @@ const CenteredContent = styled.div`
     margin: auto;
     transform: translate(-50%, -50%);
 `
+const MiddleElementContainer = styled.div`
+    position: absolute;
+    top: 10%;
+    right: 0;
+    transform: translateX(50%);
+`
 const Title = styled.div`
     font-family: Albertiny;
     font-size: 70px;
 `
 
 export default function SideTitleSplitSection(props) {
-    const { children, title, titleBackground, titleTextColor, underlineColor, navTextColor, noPadding, sectionId, expanded } = props
-    const themeContext = useContext(ThemeContext);
+    const { children, title, titleBackground, titleFontColor, underlineColor, navFontColor, noPadding, sectionId, expanded, middleElement } = props
     let titleWidth = 50;
     
     if(expanded)
         titleWidth = 30;
 
     return(
-        <ThemeProvider theme={themeContext.theme}> 
             <SectionContainer id={sectionId || title.toLowerCase()}>
-                <TitleContainer background={titleBackground} color={titleTextColor} titleWidth={titleWidth}>
+                <TitleContainer background={titleBackground} color={titleFontColor} titleWidth={titleWidth}>
+                    {
+                        middleElement && (
+                            <MiddleElementContainer>
+                                {middleElement}
+                            </MiddleElementContainer>
+                        )
+                    }
                     <CenteredContent>
                         <Title>{title}</Title>
                     </CenteredContent>
-                    <Navigation textColor={navTextColor} underlineColor={underlineColor}/>
+                    <Navigation textColor={navFontColor} underlineColor={underlineColor}/>
                 </TitleContainer>
                 <ContentContainer  contentWidth={100 -titleWidth}>
                     <Content noPadding={noPadding}>
@@ -61,6 +72,5 @@ export default function SideTitleSplitSection(props) {
                     </Content>
                 </ContentContainer>
             </SectionContainer>
-        </ThemeProvider>
     )
 };

@@ -42,6 +42,7 @@ a {
 body {
     margin: 0;
     font-family: Proxima Nova Regular, sans-serif;
+    font-size: 19px;
 }
 
 html {
@@ -51,6 +52,9 @@ html {
 * {
     margin: 0; 
     padding: 0;
+    &:focus, &:visited {
+        outline: none;
+    }
 }
 
 `

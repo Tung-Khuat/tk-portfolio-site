@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { themes, ThemeContext } from './theme/theme-context'
+import { themes, ThemeContext } from './theme/theme-context';
+import { ThemeProvider } from 'styled-components';
 
-// import MainCanvasIndex from './main-canvas/main-canvas-index';
-// import CanvasSlider from './canvas-slider/canvas-slider';
 import LandingSection from './landing-section/landing';
-import AboutSection from './about-section/about'
+import AboutSection from './about-section/about';
+import ContactSection from './contact-section/contact';
 import WorkSection from './work-section/work-section';
+import ThemeControlPanel from './theme/theme-control-panel';
 
-// const canvasArray = [<MainCanvasIndex/>, <div/>]
 
 export default function App () {
     const [themeValue, setCurrentTheme] = useState({
-        theme: themes.lightWarmPalette,
+        theme: themes.colorTheme1,
         switchTheme: (newTheme) => switchTheme(newTheme),
-        toggleDarkMode,
     });
     function switchTheme(newTheme) {
         setCurrentTheme((state)=>({
@@ -21,21 +20,17 @@ export default function App () {
             theme: newTheme
         }));
     };
-    function toggleDarkMode() {
-        setCurrentTheme((state)=>({
-            ...state,
-            theme: {
-                ...state.theme,
-                background: state.theme.foreground,
-                foreground: state.theme.background,
-            },
-        }));
-    };
+
+    // Two theme provider is because one to pass switch theme function and one is styled component theme provider
     return(
         <ThemeContext.Provider value={themeValue}>
-            <LandingSection />
-            <AboutSection />
-            <WorkSection />
+            <ThemeProvider theme={themeValue.theme}>
+                <ThemeControlPanel/>
+                <LandingSection />
+                <AboutSection />
+                <WorkSection />
+                <ContactSection />
+            </ThemeProvider>
         </ThemeContext.Provider>
     )
 }
