@@ -3,7 +3,9 @@ import { ThemeContext } from '../theme/theme-context';
 import SideHeaderSplitSection from '../section-template/side-title-split-section';
 import ProjectOverviewDisplay from './project-overview-display';
 import ProjectFullInfo from './project-full-info';
-import data from '../../data.json'
+import data from '../../data/main-projects.json';
+import HexagonButton from '../buttons/hexagon-button';
+import { checkElementInView } from '../helpers/domRelated.js'
 
 export default function WorkSection() {
     const themeContext = useContext(ThemeContext);
@@ -11,26 +13,25 @@ export default function WorkSection() {
     const [selectedProjectIndex, setSelectedProjectIndex] = useState();
 
     function expandProject(element, returnedIndex) {
-        const boundRect = element.getBoundingClientRect();
-        element.scrollIntoView();
+        const isElementInView = checkElementInView(element);
 
-        setSelectedProjectIndex(returnedIndex)
+        setSelectedProjectIndex(returnedIndex);
 
         //Expand instantly if element is in view
-        if(boundRect.top < 0 && boundRect.bottom > window.innerHeight) {
+        if(isElementInView) {
             setExpandState(true);
         } else {
             setTimeout(() => {
                 setExpandState(true);
-            }, 400);
+            }, 100);
         }
     }
 
-    function collapseProject(element) {
-        setExpandState(false);
+    function collapseProject() {
+        document.getElementById('portfolio').scrollIntoView(true);
         setTimeout(() => {
-            element.scrollIntoView();
-        }, 100);
+            setExpandState(false);
+        }, 400);
     }
 
     function checkUnselected(index) {
@@ -41,13 +42,14 @@ export default function WorkSection() {
     
     return(
         <SideHeaderSplitSection
-            title="Work"
-            titleBackground={ themeContext.theme.background }
-            titleTextColor={ themeContext.theme.foreground }
-            underlineColor={ themeContext.theme.highlight }
-            navTextColor = { themeContext.theme.foreground }
+            title="Portfolio"
+            titleBackground={ themeContext.theme.darkest }
+            titleFontColor={ themeContext.theme.lightest }
+            underlineColor={ themeContext.theme.lightest }
+            navFontColor = { themeContext.theme.highlight }
             expanded={expanded}
             noPadding
+            middleElement={expanded ? <HexagonButton onClick={collapseProject} active={expanded} fontSize={13} bgColor={themeContext.theme.highlight}><i class="fas fa-times" style={{fontSize:"19px"}}/></HexagonButton> : null}
         >
            {
                data &&
@@ -64,7 +66,7 @@ export default function WorkSection() {
             }
             {
                 data[selectedProjectIndex] && expanded && (
-                    <ProjectFullInfo project={data[selectedProjectIndex]}>   </ProjectFullInfo>
+                    <ProjectFullInfo project={data[selectedProjectIndex]}/>
                 )
             }
         </SideHeaderSplitSection>            
