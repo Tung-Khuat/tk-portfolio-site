@@ -4,8 +4,32 @@
         "subtitle": "Food Ordering App",
         "description": "TK-MovieDatabase is a responsive React app that uses The Movie Database (TMDb) API.",
         "demoLink": "http://13.53.174.170:3001/",
-        "sourceCodeLink": "null",
-        "banner": "./images/sushi-banner1.jpg"
+        "sourceCodeLink": null,
+        "otherLinks": [{ "label": "Staff Member Page", "faIcon": "fa fa-user", "url": "http://13.53.174.170:3001/login" }],
+        "banner": "./images/sushi-banner1.jpg",
+        "tech": {
+            "frontend": ["React", "React Hooks", "MaterialUI", "React Router"],
+            "backend": ["NodeJs", "express", "mongo", "JWT"],
+            "other": []
+        },
+        "motivation": [
+            "Try use Context store instead of Redux.",
+            "Get more practice on backend development.",
+            "Learn more about authentication services. Implement access token, refresh token, encryption from scratch",
+            "Implement my own pagination system for infinite scrolling."
+        ],
+        "scope": [
+            "Design and develop a web application for ordering sushi platters.",
+            "Create an administration page behind an authorization system to manage received orders.",
+            "Sort and filter orders."
+        ],
+        "futureDevelopment": [
+            "Design and develop a web application for ordering sushi platters.",
+            "Create an administration page behind an authorization system to manage received orders",
+            "Sort and filter orders."
+        ],
+        "previews": [],
+        "extraSections": [] 
     },
     {
         "title": "Recipe",

@@ -1,0 +1,37 @@
+[
+    {
+        "header": "About me",
+        "sub-header": "null",
+        "paragraph": "I am a Frontend Developer based in Helsinki, Finland. I have a passion for UI effects, animations and creating intuitive, dynamic user experiences. As a developer, I also aim to write clean, elegant and efficient code. Let's make something together.",
+        "figureImageLink": "",
+        "figureLabel": null,
+        "callToAction": [{
+            "label": "Let's make something special together.",
+            "action": "#contact"
+        }]
+    },    
+    {
+        "header": "What I do",
+        "subHeader": null,
+        "paragraph": "Professionally I am connected with the web development industry and information technology for many years. My main area of expertise is frontend development (client-side of the web). However, I also have experience in building fullstack applications with Nodejs and Mongodb.",
+        "figureImageLink": "",
+        "figureLabel": "null",
+        "callToAction": []
+    },    
+    {
+        "header": null,
+        "subHeader": "UI/UX Design",
+        "paragraph": "User experience is my first priority when designing applications. Interfaces must be intuitive, easy to use and visually appealing across various touch points. I value simple content structures, clean subtle designs, and thoughtful interactions.",
+        "figureImageLink": "",
+        "figureLabel": "null",
+        "callToAction": []
+    },    
+    {
+        "header": null,
+        "subHeader": "Technologies",
+        "paragraph": "",
+        "figureImageLink": "",
+        "figureLabel": "null",
+        "callToAction": []
+    }    
+]

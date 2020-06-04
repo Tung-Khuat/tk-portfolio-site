@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../theme/theme-context';
 import FullScreenViewSection from '../section-template/full-screen-view-section';
-import { AbsCenter, Title } from '../styled-components/basic-components';
+import { AbsCenter, Title, UnderlineHighlight } from '../styled-components/basic-components';
 
 const ContactSectionContainer = styled(AbsCenter)`
     text-align: center;
@@ -11,22 +11,14 @@ const ContactHeader = styled(Title)`
     padding: 30px 0 10px;
     
 `
-const SectionTitle = styled.p`
+const SectionTitle = styled(UnderlineHighlight)`
     font-family: Albertiny;
     font-size: 70px;
     position: relative;
     display: inline-block;
     &:after {
-    content: "";
-    display: block;
-    width: 55%;
-    margin: auto;
-    border-bottom: 5px solid;
-    position: absolute;
-    left: 50%;
-    bottom: 0.1em;
-    transform: translateX(-50%);
-    border-color: ${(props) => props.color || props.theme.highlight};
+        bottom: 0.1em;
+        width: 55%;
     }
 `
 const Email = styled(Title)`
@@ -72,7 +64,7 @@ export default function ContactSection() {
 function ContactContent() {
     return(
         <ContactSectionContainer>
-            <SectionTitle> Contact </SectionTitle>
+            <SectionTitle percentUnderlineWidth={55}> Contact </SectionTitle>
             <ContactHeader>
                 Let's get in touch!
             </ContactHeader>

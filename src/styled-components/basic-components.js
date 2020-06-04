@@ -44,3 +44,19 @@ export const FilterLayer = styled.div`
         opacity: 0.1;
     }
 `
+export const UnderlineHighlight = styled.div`
+    &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        margin: auto;
+        border-bottom: 5px solid;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        border-color: ${(props) => props.color || props.theme.highlight};
+    }
+`
+export const ParagraphMargin = styled.div`
+    margin: 50px;
+`

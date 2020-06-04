@@ -39,7 +39,7 @@ export default function WorkSection() {
             return false
         return true
     }
-    
+
     return(
         <SideHeaderSplitSection
             title="Portfolio"
