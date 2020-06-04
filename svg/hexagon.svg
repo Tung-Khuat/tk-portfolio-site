@@ -1,0 +1,29 @@
+<svg width="512" height="520" viewBox="0 0 512 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="hexagon" filter="url(#filter0_d)">
+<g id="triangle-group">
+<path id="Vector" d="M255.997 0V255.997L477.702 128L255.997 0Z" fill="#FFE1A0"/>
+<path id="Vector_2" d="M256.001 512V256.003L34.297 384L256.001 512Z" fill="#FFE1A0"/>
+<path id="Vector_3" d="M256.001 0V255.997L34.297 128L256.001 0Z" fill="#44C1DD"/>
+<path id="Vector_4" d="M256.003 255.997L34.295 128V384.002L256.003 255.997Z" fill="#F16645"/>
+<path id="Vector_5" d="M255.997 512V256.003L477.702 384L255.997 512Z" fill="#44C1DD"/>
+<path id="Vector_6" d="M255.997 255.997L477.705 128V384.002L255.997 255.997Z" fill="#F16645"/>
+</g>
+<g id="shadow-group">
+<path id="Vector_7" d="M477.702 128L403.133 84.949V171.051L477.702 128Z" fill="#EFCC86"/>
+<path id="Vector_8" d="M255.997 425.78L181.33 468.889L187.743 472.591L255.997 511.997V425.78Z" fill="#EFCC86"/>
+<path id="Vector_9" d="M256.001 511.998L477.702 384L403.033 340.892L256.001 425.778V511.998Z" fill="#37B0C4"/>
+<path id="Vector_10" d="M403.133 171.052V340.834L403.035 340.891L477.703 384.001V128.002L403.133 171.052Z" fill="#EB5836"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d" x="-4" y="0" width="520" height="520" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+</defs>
+</svg>
