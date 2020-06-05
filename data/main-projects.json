@@ -2,10 +2,15 @@
     {
         "title": "Sushi Koju",
         "subtitle": "Food Ordering App",
-        "description": "TK-MovieDatabase is a responsive React app that uses The Movie Database (TMDb) API.",
+        "description": "Sushi Koju is an web application made for ordering preset sushi platters. I made this app for a Citymarket sushi buffet. The owner wanted to have specific designs and functionality. The app also includes a page to view all the orders, sorted and categorized. That page can be visited here:",
         "demoLink": "http://13.53.174.170:3001/",
         "sourceCodeLink": null,
-        "otherLinks": [{ "label": "Staff Member Page", "faIcon": "fa fa-user", "url": "http://13.53.174.170:3001/login" }],
+        "otherLinks": [
+            { 
+                "label": "Staff Member Page", "faIcon": "fa fa-user", "url": "http://13.53.174.170:3001/login",
+                "note": [   "Username: sushi", "Password: sushi123", "*Most of the orders there are randomly generated fake orders"] 
+            }
+        ],
         "banner": "./images/sushi-banner1.jpg",
         "tech": {
             "frontend": ["React", "React Hooks", "MaterialUI", "React Router"],
@@ -37,22 +42,50 @@
         "description": "TK-MovieDatabase is a responsive React app that uses The Movie Database (TMDb) API.",
         "demoLink": "https://tungkhuat.herokuapp.com/",
         "sourceCodeLink": "https://github.com/Tung-Khuat/TKMovieDatabaseApp",
-        "banner": "./images/recipe-banner3.jpg"
+        "otherLinks": [],
+        "banner": "./images/recipe-banner3.jpg",
+        "tech": {
+            "frontend": ["React", "Redux", "Sass", "React Router"],
+            "backend": ["The Movie Database (TMDb)"],
+            "other": []
+        },
+        "motivation": [
+            "Practice building a frontend application with React and Redux.",
+            "Practice API calls and manage data.",
+            "Learn how to host a React app."
+        ],
+        "scope": [
+            "Design and develop a web application for searching movies using TMDb.",
+            "Create sliders for popular, trending, top rated and upcoming movies."
+        ],
+        "futureDevelopment": [],
+        "previews": [],
+        "extraSections": [] 
     },
     {
         "title": "TK-MovieDatabase",
         "subtitle": "Movie Database App",
-        "description": "TK-MovieDatabase is a responsive React app that uses The Movie Database (TMDb) API.",
+        "description": "TK-MovieDatabase is a React app that uses The Movie Database (TMDb) API.",
         "demoLink": "https://tungkhuat.herokuapp.com/",
         "sourceCodeLink": "https://github.com/Tung-Khuat/TKMovieDatabaseApp",
-        "banner": "https://images.unsplash.com/photo-1521967906867-14ec9d64bee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-    },
-    {
-        "title": "Weather App",
-        "subtitle": "Weather forecast",
-        "description": "TK-MovieDatabase is a responsive React app that uses The Movie Database (TMDb) API.",
-        "demoLink": "https://tungkhuat.herokuapp.com/",
-        "sourceCodeLink": "https://github.com/Tung-Khuat/TKMovieDatabaseApp",
-        "banner": "./images/weather-banner5.jpg"
+        "banner": "https://images.unsplash.com/photo-1521967906867-14ec9d64bee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "otherLinks": [],
+        "tech": {
+            "frontend": ["React", "Redux", "Sass", "React Router"],
+            "backend": ["The Movie Database (TMDb)"],
+            "other": []
+        },
+        "motivation": [
+            "Practice building a frontend application with React and Redux.",
+            "Practice API calls and manage data.",
+            "Learn how to host a React app."
+        ],
+        "scope": [
+            "Design and develop a web application for searching movies using TMDb.",
+            "Create sliders for popular, trending, top rated and upcoming movies."
+        ],
+        "futureDevelopment": [],
+        "previews": [],
+        "extraSections": [] 
     }
 ]

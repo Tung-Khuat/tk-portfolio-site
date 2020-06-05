@@ -64,6 +64,11 @@ const AnchorWrap = styled.a`
     width: 100%;
     margin-left: 7px;
 `
+const OtherLinkLabel = styled.a`
+    color: ${(props) => props.theme.highlight};
+    font-weight: bold;
+    cursor: pointer;
+`
 
 export default function ProjectFullInfo({project}) {
     if(!project){
@@ -71,14 +76,16 @@ export default function ProjectFullInfo({project}) {
     }
 
     function renderList(label, listArray) {
-        return (
-            <ParagraphMargin>
-                <h3>{label}</h3>
-                <ul>
-                    { listArray && listArray.map((item) => (<li>{item}</li>)) }
-                </ul>
-            </ParagraphMargin>
-        )
+        if(listArray && listArray.length > 0) {
+            return (
+                <ParagraphMargin>
+                    <h3>{label}</h3>
+                    <ul>
+                        { listArray.map((item) => (<li>{item}</li>)) }
+                    </ul>
+                </ParagraphMargin>
+            )
+        }
     }
 
     return (
@@ -96,6 +103,13 @@ export default function ProjectFullInfo({project}) {
                     <AnchorWrap href={project.sourceCodeLink} target="_blank" rel="noopener noreferrer">
                         <CircleIconButton><i class="fas fa-code"></i></CircleIconButton>
                     </AnchorWrap>
+                    {
+                        project.otherLinks && project.otherLinks.map((link) => (
+                            <AnchorWrap href={link.url} target="_blank" rel="noopener noreferrer">
+                                <CircleIconButton><i class={link.faIcon}></i></CircleIconButton>
+                            </AnchorWrap>                       
+                        ))
+                    }
                 </ButtonGroupWrap>
             </BasicInfoWrap>
 
@@ -104,6 +118,17 @@ export default function ProjectFullInfo({project}) {
             <ParagraphMargin>
                 <h3>Summary</h3>
                 <p>{ project.description }</p>
+
+                {
+                    project.otherLinks && project.otherLinks.map((link) => (
+                        <div>
+                            <OtherLinkLabel href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</OtherLinkLabel>
+                            {link.note.map((note) => (<p>{ note }</p>))}
+                        </div>
+                                           
+                    ))
+                }
+
                 <TechGroupWrap>
                     <h4>Frontend</h4>
                     { project.tech && project.tech.frontend.map((tech) => (<span>{tech}</span>)) }
