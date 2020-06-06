@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navigation from '../navigation/navigation';
+import NavigationInSections from '../navigation/navigation-in-sections';
 import { Wrapper } from '../styled-components/basic-components'
+import { media } from '../styled-components/media-breakpoints'
 
 
 const SectionContainer = styled.section`
@@ -9,13 +10,22 @@ const SectionContainer = styled.section`
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
+    ${media.desktop.medium} {
+        display: block;
+    }
 `
 const ContentContainer = styled(Wrapper)`
     width: ${({contentWidth}) => contentWidth + '%'};
     transition: 1s width cubic-bezier(.77,0,.175,1);
+    ${media.desktop.medium} {
+        width: 100%;
+    }
 `
-const Content = styled.div`
+const InnerContent = styled.div`
     padding: ${({noPadding}) => (noPadding ? 0 : "79px")};
+    ${media.desktop.medium} {
+        padding: ${({noPadding}) => (noPadding ? 0 : "50px")};
+    }
 `
 const TitleContainer = styled(Wrapper)`
     position: sticky;
@@ -25,6 +35,12 @@ const TitleContainer = styled(Wrapper)`
     height: 100vh;
     transition: 1s width cubic-bezier(.77,0,.175,1);
     z-index: 50;
+
+    ${media.desktop.medium} {
+        width: 100%;
+        height: 20vh;
+        position: relative;
+    }
 `
 const CenteredContent = styled.div`
     position: absolute;
@@ -38,6 +54,9 @@ const MiddleElementContainer = styled.div`
     top: 10%;
     right: 0;
     transform: translateX(50%);
+    ${media.desktop.medium} {
+       display: none;
+    }
 `
 const Title = styled.div`
     font-family: Albertiny;
@@ -45,7 +64,7 @@ const Title = styled.div`
 `
 
 export default function SideTitleSplitSection(props) {
-    const { children, title, titleBackground, titleFontColor, underlineColor, navFontColor, noPadding, sectionId, expanded, middleElement } = props
+    const { children, title, titleBackground, titleFontColor, underlineColor, navFontColor, noPadding, sectionId, expanded, middleElement, customNavArray } = props
     let titleWidth = 50;
     
     if(expanded)
@@ -64,12 +83,12 @@ export default function SideTitleSplitSection(props) {
                     <CenteredContent>
                         <Title>{title}</Title>
                     </CenteredContent>
-                    <Navigation textColor={navFontColor} underlineColor={underlineColor}/>
+                    <NavigationInSections textColor={navFontColor} underlineColor={underlineColor} customNavArray={customNavArray}/>
                 </TitleContainer>
-                <ContentContainer  contentWidth={100 -titleWidth}>
-                    <Content noPadding={noPadding}>
+                <ContentContainer  contentWidth={100 -titleWidth} >
+                    <InnerContent noPadding={noPadding}>
                         {children}
-                    </Content>
+                    </InnerContent>
                 </ContentContainer>
             </SectionContainer>
     )

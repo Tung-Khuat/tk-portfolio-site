@@ -53,7 +53,9 @@ export default function ContactSection() {
                 background={ theme.secondaryLight }
                 fontColor={ theme.darkest }
                 navUnderline={ theme.highlight }
-                navFontColor = { theme.darkest }
+                navFontColor={ theme.darkest }
+                displayNavOnMobile
+                customNavArray={[{label: "Back to top", href: "#home"}]}
             >
                 <ContactContent />
             </FullScreenViewSection>            
@@ -68,7 +70,7 @@ function ContactContent() {
             <ContactHeader>
                 Let's get in touch!
             </ContactHeader>
-            <p>I am interested in freelance opportunities and full-time employment </p>
+            <p>If you are interested in working together or have any questions, don't hesitate to contact me.</p>
             <Email><HighlightText>Email</HighlightText> tungkhuat09@gmail.com </Email>
             {
                 contactLinksData.map((link, i) => (

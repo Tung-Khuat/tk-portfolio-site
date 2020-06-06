@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../theme/theme-context';
+import { media } from '../styled-components/media-breakpoints';
+import { navLinkList } from './nav-link-list';
 
 const Nav = styled.nav`
     position: absolute;
@@ -38,27 +40,29 @@ const Nav = styled.nav`
             border-color: ${props => props.underlineColor};
         }
     }
+
+    ${media.desktop.medium} {
+        display: ${props => props.displayOnMobile ? "block" : "none"};
+    }
 `
 
-export default function Navigation({textColor, underlineColor, customNavList}) {
+export default function NavigationOnMobile({textColor, underlineColor, customNavList, displayOnMobile, customNavArray}) {
     const theme = useContext(ThemeContext);
 
     return (
-        <Nav color={textColor || theme.darkest} underlineColor={underlineColor || theme.highlight}>
-            {
-                customNavList && (
-                    {customNavList}
-                )
-            }
-            {
-                !customNavList && (
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                )
-            }
+        <Nav displayOnMobile={displayOnMobile} color={textColor || theme.darkest} underlineColor={underlineColor || theme.highlight}>
+            <ul>
+                {
+                    customNavArray && customNavArray.map((link) => (
+                        <li><a href={link.href}>{link.label}</a></li>
+                    ))
+                }
+                {
+                    !customNavArray && navLinkList.map((link) => (
+                        <li><a href={link.href}>{link.label}</a></li>
+                    ))
+                }
+            </ul>
         </Nav>
     )
 } 

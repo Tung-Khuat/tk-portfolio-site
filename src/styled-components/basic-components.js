@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { media } from './media-breakpoints'
+
 
 export const Wrapper = styled.div`
     color: ${(props) => props.color || props.theme.darkest};
@@ -59,4 +61,7 @@ export const UnderlineHighlight = styled.div`
 `
 export const ParagraphMargin = styled.div`
     margin: 50px;
+    ${media.desktop.small} {
+        margin: 50px 0;
+    }
 `

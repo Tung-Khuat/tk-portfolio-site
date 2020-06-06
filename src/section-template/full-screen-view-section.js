@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navigation from '../navigation/navigation';
+import NavigationInSections from '../navigation/navigation-in-sections';
 
 const FullScreenViewSectionContainer = styled.section`
     position: relative;
@@ -9,11 +9,11 @@ const FullScreenViewSectionContainer = styled.section`
     background: ${(props)=>props.background || props.theme.lightest};
     color: ${(props)=>props.color || props.theme.darkest};
 `
-export default function FullScreenViewSection({children, background, fontColor, navFontColor, navUnderline, sectionId}) {
+export default function FullScreenViewSection({children, background, fontColor, navFontColor, navUnderline, sectionId, displayNavOnMobile, customNavArray}) {
     return(
-        <FullScreenViewSectionContainer id={sectionId && sectionId.toLowerCase()} background={background} color={fontColor}>
+        <FullScreenViewSectionContainer id={sectionId && sectionId.toLowerCase()} background={background} color={fontColor}> 
                 {children}
-            <Navigation textColor={navFontColor} underlineColor={navUnderline} />
+            <NavigationInSections textColor={navFontColor} underlineColor={navUnderline} displayOnMobile={displayNavOnMobile} customNavArray={customNavArray}/>
         </FullScreenViewSectionContainer>
     )
 };

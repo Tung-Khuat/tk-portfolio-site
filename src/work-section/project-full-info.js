@@ -64,6 +64,9 @@ const AnchorWrap = styled.a`
     width: 100%;
     margin-left: 7px;
 `
+const OtherLinkWrap = styled.div`
+    margin: 15px 0;
+`
 const OtherLinkLabel = styled.a`
     color: ${(props) => props.theme.highlight};
     font-weight: bold;
@@ -121,10 +124,10 @@ export default function ProjectFullInfo({project}) {
 
                 {
                     project.otherLinks && project.otherLinks.map((link) => (
-                        <div>
+                        <OtherLinkWrap>
                             <OtherLinkLabel href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</OtherLinkLabel>
                             {link.note.map((note) => (<p>{ note }</p>))}
-                        </div>
+                        </OtherLinkWrap>
                                            
                     ))
                 }

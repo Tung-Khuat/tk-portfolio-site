@@ -13,7 +13,7 @@ export default function Landing() {
     const themeContext = useContext(ThemeContext);
     const { theme } = themeContext
     return(
-        <FullScreenViewSection sectionId="home" background={theme.darkest} fontColor={theme.lightest} navFontColor={theme.highlight} navUnderline={theme.lightest}>
+        <FullScreenViewSection sectionId="home" background={theme.darkest} fontColor={theme.lightest} navFontColor={theme.highlight} navUnderline={theme.lightest} displayNavOnMobile>
             <AbsCenter>
                 <Header>Tung</Header>
                 <Header>Khuat</Header>

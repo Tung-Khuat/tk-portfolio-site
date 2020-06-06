@@ -1,7 +1,11 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
 import { Title, Subtitle, FilterLayer } from '../styled-components/basic-components';
 import HexagonButton from '../buttons/hexagon-button';
+import { screenWidth } from '../styled-components/media-breakpoints';
+import { ThemeContext } from '../theme/theme-context';
+
+
 
 const DisplayContainer = styled.div`
     color: ${(props) => props.color || props.theme.lightest};
@@ -31,6 +35,7 @@ const CenteredContent = styled.div`
     margin: auto;
     text-align: center;
     transform: translate(-50%, -50%);   
+    cursor: pointer;
 `
 const BackgroundContainer = styled.div`
     width: 100%;
@@ -46,6 +51,7 @@ export default function ProjectOverviewDisplay({project, expandProject, collapse
     const containerRef = useRef();
     const { banner, title, subtitle } = project;
     const [showButton, setShowButton] = useState(false);
+    const themeContext = useContext(ThemeContext)
 
     useEffect(() => {
         const displayContainer = containerRef.current;
@@ -56,9 +62,14 @@ export default function ProjectOverviewDisplay({project, expandProject, collapse
                 displayContainer.style.display = "none";
             } 
             document.getElementById("portfolio").scrollIntoView()
-            setTimeout(() => {
-                displayContainer.style.height = '30vh';                
-            }, 1000);
+
+            if(window.innerWidth < screenWidth.medium) {
+                displayContainer.style.height = '30vh';
+            } else {
+                setTimeout(() => {
+                    displayContainer.style.height = '30vh';                
+                }, 1000);
+            }
         }
         if(!expanded){
             displayContainer.style.height = '110vh';
@@ -87,12 +98,17 @@ export default function ProjectOverviewDisplay({project, expandProject, collapse
                 <BackgroundImage ref={backgroundImageRef} backgroundImage={ banner }/>
                 <FilterLayer />
             </BackgroundContainer>
-            <CenteredContent>
+            <CenteredContent onClick={handleOnClick}>
                 <Title>{ title }</Title>
                 <Subtitle>{ subtitle }</Subtitle>
                 {
                     !expanded && (
-                        <HexagonButton onClick={handleOnClick} fontSize={17} active={showButton}>More</HexagonButton>
+                        <HexagonButton fontSize={17} active={ window.innerWidth < screenWidth.medium ? true : showButton}>More</HexagonButton>
+                    )
+                }
+                {
+                    expanded && window.innerWidth < screenWidth.medium && (
+                        <HexagonButton onClick={collapseProject} active={expanded} fontSize={13} bgColor={themeContext.theme.highlight}><i class="fas fa-times" style={{fontSize:"19px"}}/></HexagonButton>
                     )
                 }
             </CenteredContent>

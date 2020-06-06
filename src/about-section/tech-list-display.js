@@ -110,19 +110,19 @@ const data = [
     {
         tech: [
             {icon: "node", name: "NodeJS"},
-            {icon: "Mongodb", name: "MongoDB"},
+            {icon: "mongodb", name: "MongoDB"},
         ],
         note: "Node, express, MongoDB is my stack to make RESTful Backends. At the moment, I am hosting my servers on AWS-Ec2 and my database on their instances or MongoDB's cloud clusters.",
     },
     {
         tech: [
             {icon: "npm", name: "NPM"},
-            {icon: "Webpack", name: "Webpack"},
+            {icon: "webpack", name: "Webpack"},
             {icon: "git", name: "Git Version Control"},
-            {icon: "VS-Code", name: "VS-Code"},
-            {icon: "jQuery", name: "jQuery"},
-            {icon: "Figma", name: "Figma"},
-            {icon: "Affinity", name: "Affinity Photo"},
+            {icon: "vs-code", name: "VS-Code"},
+            {icon: "jquery", name: "jQuery"},
+            {icon: "figma", name: "Figma"},
+            {icon: "affinity", name: "Affinity Photo"},
             {icon: "aws", name: "AWS-EC2"},
         ],
         note: "These are some of the other tools and technologies I use.",
