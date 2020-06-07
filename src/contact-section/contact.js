@@ -12,7 +12,7 @@ const ContactHeader = styled(Title)`
     
 `
 const SectionTitle = styled(UnderlineHighlight)`
-    font-family: Albertiny;
+    font-family: Albertiny, Photograph-Signature;
     font-size: 70px;
     position: relative;
     display: inline-block;

@@ -1,11 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, Suspense } from 'react';
 import { ThemeContext } from '../theme/theme-context';
 import SideHeaderSplitSection from '../section-template/side-title-split-section';
-import ProjectOverviewDisplay from './project-overview-display';
-import ProjectFullInfo from './project-full-info';
 import data from '../../data/main-projects.json';
 import HexagonButton from '../buttons/hexagon-button';
-import { checkElementInView } from '../helpers/domRelated.js'
+import HexagonLoadingIndicator from '../loading-indicators/hexagon-loading-indicator';
+import { checkElementInView } from '../helpers/domRelated.js';
+
+const ProjectOverviewDisplay = React.lazy(() => 
+    import('./project-overview-display'),
+);
+const ProjectFullInfo = React.lazy(() => 
+    import('./project-full-info'),
+);
 
 export default function WorkSection() {
     const themeContext = useContext(ThemeContext);
@@ -51,24 +57,27 @@ export default function WorkSection() {
             noPadding
             middleElement={expanded ? <HexagonButton onClick={collapseProject} active={expanded} fontSize={13} bgColor={themeContext.theme.highlight}><i class="fas fa-times" style={{fontSize:"19px"}}/></HexagonButton> : null}
         >
-           {
-               data &&
-                data.map((project, index)=>(
-                    <ProjectOverviewDisplay 
-                            project={project}
-                            expandProject={expandProject}
-                            collapseProject={collapseProject}
-                            expanded={expanded}
-                            index={index}
-                            checkUnselected={()=>checkUnselected(index)}
-                    />
-                ))
-            }
-            {
-                data[selectedProjectIndex] && expanded && (
-                    <ProjectFullInfo project={data[selectedProjectIndex]}/>
-                )
-            }
+                 {
+                     data &&
+                        data.map((project, index)=>(
+                            <ProjectOverviewDisplay 
+                                    project={project}
+                                    expandProject={expandProject}
+                                    collapseProject={collapseProject}
+                                    expanded={expanded}
+                                    index={index}
+                                    checkUnselected={()=>checkUnselected(index)}
+                            />
+                        ))
+                }
+            <Suspense fallback={<HexagonLoadingIndicator/>}>
+                {
+                    data[selectedProjectIndex] && expanded && (
+                        <ProjectFullInfo project={data[selectedProjectIndex]}/>
+                    )
+                }
+            </Suspense>
+           
         </SideHeaderSplitSection>            
     )
 };

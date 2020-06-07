@@ -5,7 +5,7 @@ import FullScreenViewSection from '../section-template/full-screen-view-section'
 import { AbsCenter } from '../styled-components/basic-components';
 
 const Header = styled.div`
-    font-family: Albertiny;
+    font-family: Albertiny, Photograph-Signature;
     font-size: 70px;
 `
 

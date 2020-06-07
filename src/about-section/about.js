@@ -1,12 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, Suspense } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../theme/theme-context';
 import { Title, Wrapper, HighlightedLink } from '../styled-components/basic-components';
 import data from '../../data/about-info.json';
 import SideTitleSplitSection from '../section-template/side-title-split-section';
 import HexagonImage from '../image-display/hexagon-image';
-import TechListDisplay from './tech-list-display';
+import HexagonLoadingIndicator from '../loading-indicators/hexagon-loading-indicator';
 
+
+const TechListDisplay = React.lazy(() => 
+    import('./tech-list-display'),
+);
 
 const AboutContentHeader = styled(Title)`
     padding: 25px 0;
@@ -36,26 +40,28 @@ export default function AboutSection() {
 
 function AboutContent() {
     return(
-        <Wrapper>
-            {
-                data && (
-                    data.map((section) => (
-                        <div>
-                            <AboutContentHeader>{section.header}</AboutContentHeader>
-                            <h4>{ section.subHeader }</h4>
-                            <p>{ section.paragraph }</p>
-                            { 
-                                section.callToAction && section.callToAction.length > 0 &&(
-                                    section.callToAction.map((cta) => (
-                                        <CtaLink href={ cta.action }>{ cta.label }</CtaLink>
-                                    )) 
-                                )
-                            }
-                        </div>
-                    ))
-                )
-            }
-            <TechListDisplay />
-        </Wrapper>
+        <Suspense fallback={<HexagonLoadingIndicator/>}>
+            <Wrapper>
+                {
+                    data && (
+                        data.map((section) => (
+                            <div>
+                                <AboutContentHeader>{section.header}</AboutContentHeader>
+                                <h4>{ section.subHeader }</h4>
+                                <p>{ section.paragraph }</p>
+                                { 
+                                    section.callToAction && section.callToAction.length > 0 &&(
+                                        section.callToAction.map((cta) => (
+                                            <CtaLink href={ cta.action }>{ cta.label }</CtaLink>
+                                        )) 
+                                    )
+                                }
+                            </div>
+                        ))
+                    )
+                }
+                <TechListDisplay />
+            </Wrapper>
+        </Suspense>
     )
 }

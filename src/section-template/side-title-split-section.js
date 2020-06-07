@@ -59,7 +59,7 @@ const MiddleElementContainer = styled.div`
     }
 `
 const Title = styled.div`
-    font-family: Albertiny;
+    font-family: Albertiny, Photograph-Signature;
     font-size: 70px;
 `
 

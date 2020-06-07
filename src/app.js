@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { themes, ThemeContext } from './theme/theme-context';
 import { ThemeProvider } from 'styled-components';
 
-import LandingSection from './landing-section/landing';
-import AboutSection from './about-section/about';
-import ContactSection from './contact-section/contact';
-import WorkSection from './work-section/work-section';
 import ThemeControlPanel from './theme/theme-control-panel';
+import HexagonLoadingIndicator from './loading-indicators/hexagon-loading-indicator';
 
+const LandingSection = React.lazy(() => 
+    import('./landing-section/landing'),
+);
+const AboutSection = React.lazy(() => 
+    import('./about-section/about'),
+);
+const WorkSection = React.lazy(() => 
+    import('./work-section/work-section'),
+);
+const ContactSection = React.lazy(() => 
+    import('./contact-section/contact'),
+);
 
 export default function App () {
     const [themeValue, setCurrentTheme] = useState({
@@ -25,11 +34,13 @@ export default function App () {
     return(
         <ThemeContext.Provider value={themeValue}>
             <ThemeProvider theme={themeValue.theme}>
-                <ThemeControlPanel/>
-                <LandingSection />
-                <AboutSection />
-                <WorkSection />
-                <ContactSection />
+                <Suspense fallback={<HexagonLoadingIndicator fullScreenSize />}>
+                    <ThemeControlPanel/>
+                    <LandingSection />
+                    <AboutSection />
+                    <WorkSection />
+                    <ContactSection />
+                </Suspense>
             </ThemeProvider>
         </ThemeContext.Provider>
     )
