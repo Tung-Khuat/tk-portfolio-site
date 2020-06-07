@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import ProximaNovaReg from '../assets/fonts/Proxima-Nova-Reg.ttf';
 import ProximaNovaBold from '../assets/fonts/Proxima-Nova-Bold.otf';
 import Albertiny from '../assets/fonts/Albertiny-Demo.ttf';
+import PhotographSignature from '../assets/fonts/Photograph-Signature.ttf';
 
 const GlobalStyles = createGlobalStyle`
 @font-face {
@@ -25,11 +26,21 @@ const GlobalStyles = createGlobalStyle`
 }
 
 @font-face {
+    font-family: Photograph-Signature;
+    src:
+        local("Photograph-Signature"),
+        url("./fonts/Photograph-Signature.ttf"), 
+        url(${PhotographSignature}) format('font/ttf');
+    font-weight: bold;
+    font-style: bold;
+}
+
+@font-face {
     font-family: Albertiny;
     src:
         local("Albertiny-Demo"),
         url("./fonts/Albertiny-Demo.ttf"), 
-        url(${Albertiny}) format('font/otf');
+        url(${Albertiny}) format('font/ttf');
     font-weight: bold;
     font-style: bold;
 }
