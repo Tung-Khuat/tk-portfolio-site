@@ -39,24 +39,26 @@
     {
         "title": "TK-Recipes",
         "subtitle": "Cook Book App",
-        "description": "TK-MovieDatabase is a responsive React app that uses The Movie Database (TMDb) API.",
-        "demoLink": "https://tungkhuat.herokuapp.com/",
-        "sourceCodeLink": "https://github.com/Tung-Khuat/TKMovieDatabaseApp",
+        "description": "Tk-recipes is my first Fullstack application made for saving cooking recipes. The app was left unfinished because I had another project taking priority. However, the main functionality was done and I got a lot more experience with backend development.",
+        "demoLink": "http://13.49.72.3:3000/",
+        "sourceCodeLink": "https://github.com/Tung-Khuat/tk-recipe-app",
         "otherLinks": [],
         "banner": "./images/recipe-banner3.jpg",
         "tech": {
-            "frontend": ["React", "Redux", "Sass", "React Router"],
-            "backend": ["The Movie Database (TMDb)"],
+            "frontend": ["React", "React hooks", "Redux", "Sass", "React Router"],
+            "backend": ["Nodejs", "express", "Mongodb" ],
             "other": []
         },
         "motivation": [
-            "Practice building a frontend application with React and Redux.",
-            "Practice API calls and manage data.",
-            "Learn how to host a React app."
+            "Learn Backend development with Nodejs, express and mongo.",
+            "Practice with React hooks.",
+            "Learn how to deploy a Node express app and cloud database. I chose AWS-Ec2 here."
         ],
         "scope": [
-            "Design and develop a web application for searching movies using TMDb.",
-            "Create sliders for popular, trending, top rated and upcoming movies."
+            "Design and develop a web application for saving cooking recipes.",
+            "Follow MVC design pattern for application development.",
+            "Deploy server and database.",
+            "Design a CMS-like system for new uploads or edits."
         ],
         "futureDevelopment": [],
         "previews": [],
