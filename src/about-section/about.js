@@ -2,7 +2,7 @@ import React, { useContext, Suspense } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../theme/theme-context';
 import { Title, Wrapper, HighlightedLink } from '../styled-components/basic-components';
-import data from '../../data/about-info.json';
+import data from '../data/about-info.json';
 import SideTitleSplitSection from '../section-template/side-title-split-section';
 import HexagonImage from '../image-display/hexagon-image';
 import HexagonLoadingIndicator from '../loading-indicators/hexagon-loading-indicator';

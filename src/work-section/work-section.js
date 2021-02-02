@@ -1,7 +1,7 @@
 import React, { useContext, useState, Suspense } from 'react';
 import { ThemeContext } from '../theme/theme-context';
 import SideHeaderSplitSection from '../section-template/side-title-split-section';
-import data from '../../data/main-projects.json';
+import data from '../data/main-projects.json';
 import HexagonButton from '../buttons/hexagon-button';
 import HexagonLoadingIndicator from '../loading-indicators/hexagon-loading-indicator';
 import { checkElementInView } from '../helpers/domRelated.js';
